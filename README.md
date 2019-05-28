@@ -1,8 +1,5 @@
-# Build your own docker image with command and code provided
-
-# Dockerfile
-Docker file for Kubernetes Test Application 
-
+# Kubernetes Test Application 
+Build your own docker image with command and code provided
 <h2> Docker Useful Commands </h2>
 <p>
 <code>docker build -t kube-test:v0.1 . </code><br>
