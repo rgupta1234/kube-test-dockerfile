@@ -12,7 +12,7 @@ Docker file for Kubernetes Test Application
 <code>docker run -d --name kube-test -p 8080:80 **username**/kube-test:v0.1</code><br>
 </p>
 
-## else you can pull my Docker image from
+## else you can pull my docker image
 https://cloud.docker.com/repository/docker/bhargavshah86/kube-test
 <br> 
 <code>docker pull bhargavshah86/kube-test:v0.1</code>
