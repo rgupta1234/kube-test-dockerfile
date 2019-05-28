@@ -14,5 +14,5 @@ Docker file for Kubernetes Test Application
 
 ## else you can pull my Docker image from
 https://cloud.docker.com/repository/docker/bhargavshah86/kube-test
-<br>
+<br> 
 <code>docker pull bhargavshah86/kube-test:v0.1</code>
