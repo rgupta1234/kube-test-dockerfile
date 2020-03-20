@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Kubernetes Application Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   html, body {
     height: 100%;
@@ -19,6 +20,28 @@
   canvas {
     border: 3px solid Black;
   }
+  
+  
+  .button {
+  background-color: #4CAF20; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
+
+  
   </style>
 </head>
 <body>
@@ -33,6 +56,26 @@
             <canvas width="400" height="400" id="game">
             </canvas>
         </td>
+    </tr>
+                <tr>
+        <td>
+                <center>
+<table cellpadding="5">
+<tr><td colspan="2" align="center">
+ <input class="button button4" type="button" onclick="up()" value=" U ">
+</td></tr>
+<tr><td>
+ <input class="button button4" type="button" onclick="left()" value=" L ">
+</td>
+<td>
+ <input class="button button4" type="button" onclick="right()" value=" R ">
+</td>
+<tr><td colspan="2" align="center">
+ <input class="button button4" type="button" onclick="down()" value=" D ">
+</td></tr>
+</table>
+                </center>
+</td>
     </tr>
 </table>
 
@@ -57,7 +100,7 @@ var snake = {
   cells: [],
   
   // length of the snake. grows when eating an apple
-  maxCells: 4
+  maxCells: 5
 };
 var apple = {
   x: 320,
@@ -75,7 +118,7 @@ function loop() {
   requestAnimationFrame(loop);
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 4) {
+  if (++count < 5) {
     return;
   }
 
@@ -149,6 +192,53 @@ function loop() {
   });
 }
 
+  function left(){
+  if (snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  }
+  }
+  function up(){
+  if ( snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  }
+  }
+  function right(){
+  if ( snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  }
+  }
+  function down(){
+  if (snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+  }
+  function hack(){
+  if (snake.maxCells){
+  snake.maxCells++;
+  }
+  }
+  function hackd(){
+  if (snake.maxCells){
+  colors = "rgb("
+    +Math.floor(Math.random() * 226)
+    +","
+    +Math.floor(Math.random() * 226)
+    +","
+    +Math.floor(Math.random() * 226)
+    +")";
+  }
+  }
+  function hacku(){
+  if (snake.maxCells){
+  apple.x = getRandomInt(0, 25) * grid;
+  apple.y = getRandomInt(0, 25) * grid;
+  }
+  }
+
 // listen to keyboard events to move the snake
 document.addEventListener('keydown', function(e) {
   // prevent snake from backtracking on itself by checking that it's 
@@ -177,7 +267,6 @@ document.addEventListener('keydown', function(e) {
     snake.dx = 0;
   }
 });
-
 // start the game
 requestAnimationFrame(loop);
 </script>
